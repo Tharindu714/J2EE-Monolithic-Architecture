@@ -2,7 +2,7 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
     <persistence-unit name="J2EE-MONO-PU" transaction-type="JTA">
         <jta-data-source>j2ee_mono</jta-data-source>
-        <class>com.tharindu.app.ejb.Entity.User</class>
+        <class>com.tharindu.app.core.model.User</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
             <property name="jakarta.persistence.schema-generation.scripts.action" value="create"/>

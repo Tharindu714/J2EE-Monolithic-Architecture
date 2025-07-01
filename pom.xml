@@ -13,6 +13,7 @@
         <module>WEB</module>
         <module>EJB</module>
         <module>EAR</module>
+        <module>CORE</module>
     </modules>
 
     <properties>

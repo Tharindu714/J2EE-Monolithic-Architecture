@@ -25,6 +25,16 @@
             <artifactId>jakarta.jakartaee-web-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tharindu.app</groupId>
+            <artifactId>CORE</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

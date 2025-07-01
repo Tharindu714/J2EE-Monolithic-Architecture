@@ -15,12 +15,12 @@
 <form method="POST" action="${pageContext.request.contextPath}/register">
     <table>
         <tr>
-            <th>First Name</th>
-            <td><label for="firstName"></label><input type="text" name="firstName" id="firstName"></td>
+            <th>Username</th>
+            <td><label for="username"></label><input type="text" name="username" id="username"></td>
         </tr>
         <tr>
-            <th>Last Name</th>
-            <td><label for="lastName"></label><input type="text" name="lastName" id="lastName"></td>
+            <th>Contact Number</th>
+            <td><label for="contact"></label><input type="text" name="contact" id="contact"></td>
         </tr>
         <tr>
             <th>Email</th>

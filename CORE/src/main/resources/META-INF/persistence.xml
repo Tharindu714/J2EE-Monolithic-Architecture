@@ -4,12 +4,14 @@
         <jta-data-source>j2ee_mono</jta-data-source>
         <class>com.tharindu.app.core.model.User</class>
         <class>com.tharindu.app.core.model.Product</class>
+        <shared-cache-mode>NONE</shared-cache-mode>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <property name="jakarta.persistence.sharedCache.mode" value="NONE"/>
+            <property name="eclipselink.cache.shared.default" value="false"/>
             <property name="jakarta.persistence.schema-generation.scripts.action" value="create"/>
             <property name="jakarta.persistence.schema-generation.scripts.create-target" value="create.sql"/>
             <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="drop.sql"/>
         </properties>
     </persistence-unit>
-
 </persistence>

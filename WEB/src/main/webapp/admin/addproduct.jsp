@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Add Products</h1>
-<form method="POST" action="${pageContext.request.contextPath}/admin/addproduct">
+<form method="POST" action="${pageContext.request.contextPath}/admin/add-dinosaurs">
     <tr>
         <td>
             <label for="category">Category:</label>

@@ -5,7 +5,10 @@
              version="9">
 
     <module>
-        <ejb>Tharindu-EJB-Module.jar</ejb>
+        <ejb>Tharindu-AUTH-Module.jar</ejb>
+    </module>
+    <module>
+        <ejb>Tharindu-Product-Module.jar</ejb>
     </module>
     <module>
         <web>

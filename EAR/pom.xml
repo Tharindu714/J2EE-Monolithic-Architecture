@@ -22,7 +22,13 @@
     <dependencies>
         <dependency>
             <groupId>com.tharindu.app</groupId>
-            <artifactId>EJB</artifactId>
+            <artifactId>AUTH</artifactId>
+            <version>1.0</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.tharindu.app</groupId>
+            <artifactId>Product</artifactId>
             <version>1.0</version>
             <type>ejb</type>
         </dependency>
@@ -58,8 +64,13 @@
                         </webModule>
                         <ejbModule>
                             <groupId>com.tharindu.app</groupId>
-                            <artifactId>EJB</artifactId>
-                            <bundleFileName>Tharindu-EJB-Module.jar</bundleFileName>
+                            <artifactId>AUTH</artifactId>
+                            <bundleFileName>Tharindu-AUTH-Module.jar</bundleFileName>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.tharindu.app</groupId>
+                            <artifactId>Product</artifactId>
+                            <bundleFileName>Tharindu-Product-Module.jar</bundleFileName>
                         </ejbModule>
                     </modules>
                 </configuration>

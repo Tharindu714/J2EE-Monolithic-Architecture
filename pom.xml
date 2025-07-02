@@ -11,9 +11,10 @@
     <name>MONO-ARC-J2EE</name>
     <modules>
         <module>WEB</module>
-        <module>EJB</module>
+        <module>AUTH</module>
         <module>EAR</module>
         <module>CORE</module>
+        <module>Product</module>
     </modules>
 
     <properties>

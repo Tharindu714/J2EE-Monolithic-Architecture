@@ -2,6 +2,7 @@ package com.tharindu.app.product;
 
 import com.tharindu.app.core.model.Product;
 import com.tharindu.app.core.service.ProductService;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -47,6 +48,7 @@ public class ProductSessionBean implements ProductService {
         em.merge(product);
     }
 
+    @RolesAllowed({"SUPER_ADMIN","ADMIN"})
     @Override
     public void deleteProduct(Long id) {
         em.remove(getProductById(id));

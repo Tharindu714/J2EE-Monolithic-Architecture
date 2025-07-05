@@ -29,7 +29,6 @@ public class UserSessionBean implements UserService {
         em.persist(user);
     }
 
-    @RolesAllowed({"USER", "ADMIN", "SUPER_ADMIN"})
     @Override
     public void updateUser(User user) {
         em.merge(user);

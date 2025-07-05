@@ -34,10 +34,12 @@ public class Register extends HttpServlet {
 
         //Send Email to new User
         String V_CODE = UUID.randomUUID().toString();
+        user.setVerificationCode(V_CODE);
+        // Save the user with the verification code
+        userService.saveUser(user);
+
         VerificationEmail V_MAIL = new VerificationEmail(email, V_CODE);
         MailServiceProvider.getInstance().sendMail(V_MAIL);
-
-        userService.saveUser(user);
 
         response.sendRedirect(request.getContextPath() + "/login.jsp");
     }

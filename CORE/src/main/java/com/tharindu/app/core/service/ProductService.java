@@ -4,12 +4,13 @@ import com.tharindu.app.core.model.Product;
 import jakarta.ejb.Remote;
 
 import java.util.List;
+import java.util.Optional;
 
 @Remote
 public interface ProductService {
-    Product getProductById(Long id);
+   Optional <Product> getProductById(Long id);
 
-    Product getProductByName(String name);
+    Optional <Product> getProductByName(String name);
 
     List<Product> getAllProducts();
 

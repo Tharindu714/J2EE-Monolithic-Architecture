@@ -19,6 +19,7 @@ public class User implements Serializable {
     private String username;
 
     private String password;
+    private String VerificationCode;
 
     @Column(unique = true)
     private String email;
@@ -27,6 +28,9 @@ public class User implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private UserType userType = UserType.USER; // Default user type
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.INACTIVE; // Default status
 
     public User() {
     }
@@ -84,5 +88,21 @@ public class User implements Serializable {
 
     public void setUserType(UserType userType) {
         this.userType = userType;
+    }
+
+    public String getVerificationCode() {
+        return VerificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        VerificationCode = verificationCode;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

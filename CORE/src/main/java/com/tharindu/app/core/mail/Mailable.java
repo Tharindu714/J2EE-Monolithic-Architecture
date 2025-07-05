@@ -1,6 +1,7 @@
 package com.tharindu.app.core.mail;
 
 import com.tharindu.app.core.provider.MailServiceProvider;
+import com.tharindu.app.core.util.Environment;
 import jakarta.mail.Message;
 import jakarta.mail.Session;
 import jakarta.mail.Transport;
@@ -33,7 +34,7 @@ public abstract class Mailable implements Runnable {
                     provider.getAuthenticator());
 
             Message message = new MimeMessage(session_mail);
-            message.setFrom(new InternetAddress("Dino-Clone-app@tharindu.com"));
+            message.setFrom(new InternetAddress(Environment.getProperty("app.email")));
             build(message);
             Transport.send(message);
         } catch (Exception e) {

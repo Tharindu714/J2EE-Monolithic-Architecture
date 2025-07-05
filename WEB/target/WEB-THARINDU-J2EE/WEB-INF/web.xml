@@ -36,4 +36,14 @@
     <security-role>
         <role-name>USER</role-name>
     </security-role>
+
+    <error-page>
+        <exception-type>com.tharindu.app.core.exception.LoginFailedException</exception-type>
+        <location>/login_error.jsp</location>
+    </error-page>
+    <error-page>
+<!--        <error-code>500</error-code>-->
+        <exception-type>java.lang.RuntimeException</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>

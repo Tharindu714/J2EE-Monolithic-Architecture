@@ -1,6 +1,7 @@
 package com.tharindu.app.core.provider;
 
 import com.tharindu.app.core.mail.Mailable;
+import com.tharindu.app.core.util.Environment;
 import jakarta.mail.Authenticator;
 import jakarta.mail.PasswordAuthentication;
 
@@ -18,10 +19,14 @@ public class MailServiceProvider {
     private BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<>();
 
     private MailServiceProvider() {
-        prop.setProperty("mail.smtp.host", "sandbox.smtp.mailtrap.io");
-        prop.setProperty("mail.smtp.port", "2525");
+        prop.setProperty("mail.smtp.host", Environment.getProperty("mailtrap.host"));
+//        prop.setProperty("mail.smtp.host", "sandbox.smtp.mailtrap.io");
+        prop.setProperty("mail.smtp.port", Environment.getProperty("mailtrap.port"));
+//        prop.setProperty("mail.smtp.port", "2525");
         prop.setProperty("mail.smtp.auth", "true");
-        prop.setProperty("mail.smtp.starttls.enable", "false"); //No SSL Certificate
+        prop.setProperty("mail.smtp.starttls.enable", "true"); //No SSL Certificate
+        prop.setProperty("mail.smtp.ssl.trust", Environment.getProperty("mailtrap.host"));
+//        prop.setProperty("mail.smtp.ssl.trust", "*");
     }
 
     public static MailServiceProvider getInstance() {
@@ -35,7 +40,8 @@ public class MailServiceProvider {
         authenticator = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("cb72a7cbe1d997", "23ea1593db170a");
+                return new PasswordAuthentication(Environment.getProperty("mailtrap.username"), Environment.getProperty("mailtrap.password "));
+//                return new PasswordAuthentication("cb72a7cbe1d997", "23ea1593db170a");
             }
         };
         executor = new ThreadPoolExecutor(

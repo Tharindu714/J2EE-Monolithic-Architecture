@@ -1,5 +1,6 @@
 package com.tharindu.app.web.servlet;
 
+import com.tharindu.app.core.exception.LoginFailedException;
 import com.tharindu.app.core.util.Encryption;
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.AuthenticationStatus;
@@ -34,7 +35,8 @@ public class Login extends HttpServlet {
        if (AUTH_STATUS == AuthenticationStatus.SUCCESS) {
            response.sendRedirect(request.getContextPath() + "/home.jsp");
        }else {
-           response.sendRedirect(request.getContextPath() + "/login.jsp");
+//           response.sendRedirect(request.getContextPath() + "/login.jsp");
+           throw new LoginFailedException("Invalid email or password. Please try again.");
        }
     }
 }

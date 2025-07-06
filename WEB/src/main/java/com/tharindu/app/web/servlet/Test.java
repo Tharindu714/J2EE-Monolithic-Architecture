@@ -26,7 +26,7 @@ public class Test extends HttpServlet {
 //        }
 
         try{
-          Optional<Product> productByName = productService.getProductByName("My Test Product");
+          Optional<Product> productByName = productService.getProductByName("test");
          if(productByName.isPresent()){
              Product product = productByName.get();
          }

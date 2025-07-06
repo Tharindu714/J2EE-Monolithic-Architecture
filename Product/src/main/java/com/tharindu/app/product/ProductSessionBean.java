@@ -29,12 +29,12 @@ public class ProductSessionBean implements ProductService {
     public Optional<Product> getProductByName(String name) {
 //        return em.createNamedQuery("Product.findByName", Product.class)
 //                .setParameter("name", name).getSingleResult();
-        try{
+        try {
             TypedQuery<Product> query =
                     em.createNamedQuery("Product.findByName", Product.class)
                             .setParameter("name", name);
             return Optional.of(query.getSingleResult());
-        }catch (NoResultException NRE){
+        } catch (NoResultException NRE) {
             return Optional.empty();
         }
     }
@@ -62,12 +62,23 @@ public class ProductSessionBean implements ProductService {
         em.merge(product);
     }
 
-    @RolesAllowed({"SUPER_ADMIN", "ADMIN"})
+    @RolesAllowed({"ADMIN", "SUPER_ADMIN", "USER"})
     @Override
     public void deleteProduct(Long id) {
         if (id == null || id < 0) {
-            throw new InvalidParameterException("Product ID cannot be null");
+            throw new InvalidParameterException("Product ID cannot be null or negative");
         }
-        em.remove(getProductById(id));
+
+        // 1) Find the entity directly
+        Product toDelete = em.find(Product.class, id);
+
+        // 2) If nothing found, throw or simply return
+        if (toDelete == null) {
+            throw new InvalidParameterException("No product found with ID " + id);
+        }
+
+        // 3) Remove the managed instance
+        em.remove(toDelete);
     }
+
 }
